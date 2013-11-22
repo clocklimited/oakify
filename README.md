@@ -25,6 +25,40 @@ var oakify = require('..')
   ]
   , tree = oakify(list)
 
+
+  /*
+  Output
+  [
+      {
+          "_id": 1,
+          "parent": null,
+          "children": [
+              {
+                  "_id": 2,
+                  "parent": 1,
+                  "children": [
+                      {
+                          "_id": 3,
+                          "parent": 2,
+                          "children": []
+                      },
+                      {
+                          "_id": 4,
+                          "parent": 2,
+                          "children": [
+                              {
+                                  "_id": 5,
+                                  "parent": 4,
+                                  "children": []
+                              }
+                          ]
+                      }
+                  ]
+              }
+          ]
+      }
+  ]
+  */
 ```
 
 ## Credits
