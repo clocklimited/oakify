@@ -2,7 +2,7 @@
   "author": "Paul Serby",
   "name": "oakify",
   "description": "Take a list of items related by a parent property and make a tree",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "tags": [
     "tree",
     "dag"
