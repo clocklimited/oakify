@@ -1,5 +1,7 @@
 module.exports = oakify
 
+var _ = require('lodash')
+
 function leafProcessor(value) {
   return value
 }
@@ -12,27 +14,31 @@ function leafProcessor(value) {
  * is useful for simple iteration, for instance in a
  * template that generates navigation markup.
  */
-function oakify(parent, list, maxDepth, depth, options) {
+function oakify(list, parent, maxDepth, options, depth) {
+
+  if (!Array.isArray(list)) {
+    throw new Error('list is expected to be an Array')
+  }
 
   var items = []
   maxDepth = maxDepth ? maxDepth : 0
 
-  options = {
-    idProperty: options.idProperty || '_id',
-    parentProperty: options.parentProperty || 'parent',
-    leafProcessor: options.leafProcessor || leafProcessor
-  }
+  options = _.extend({
+      idProperty: '_id',
+      parentProperty: 'parent',
+      leafProcessor: leafProcessor
+    }, options)
 
   list.forEach(function (listItem) {
     var currentDepth = depth ? depth : 1
     if (listItem[options.parentProperty] === parent) {
 
-      var item = options.leafProcess(listItem)
+      var item = options.leafProcessor(listItem)
 
-      item.subItems = []
+      item.children = []
 
       if (maxDepth !== currentDepth) {
-        item.subItems = oakify(listItem[options.idProperty], list, maxDepth, currentDepth + 1)
+        item.children = oakify(list, listItem[options.idProperty], maxDepth, options, currentDepth + 1)
       }
 
       items.push(item)
