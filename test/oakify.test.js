@@ -93,6 +93,11 @@ describe('oakify', function() {
     oakify(defaultList, null).should.eql(defaultTree)
   })
 
+  it('Default tree should be created without the need for a parent value', function() {
+    var oakify = require('..')
+    oakify(defaultList).should.eql(defaultTree)
+  })
+
   it('Tree with a depth of two should be created', function() {
     var oakify = require('..')
     oakify(defaultList, null, 2).should.eql(twoDeepTree)

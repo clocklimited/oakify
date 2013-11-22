@@ -3,7 +3,10 @@
   "name": "oakify",
   "description": "Take a list of items related by a parent property and make a tree",
   "version": "0.0.1",
-  "tags": ["tree", "dag"],
+  "tags": [
+    "tree",
+    "dag"
+  ],
   "repository": {
     "type": "git",
     "url": "git@github.com:clocklimited/oakify"
@@ -23,7 +26,7 @@
     "node": ">=0.8"
   },
   "dependencies": {
-    "lodash": "~2.3.0"
+    "lodash.assign": "~2.3.0"
   },
   "devDependencies": {
     "mocha": "1",

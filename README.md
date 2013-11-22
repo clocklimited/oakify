@@ -1,12 +1,31 @@
 # oakify
 
-Take a list of items related by a parent property and make a tree
+Take a list of items related by a parent property and make a tree.
 
 ## Installation
 
     npm install --save oakify
 
 ## Usage
+
+```js
+
+var oakify = require('..')
+  , list =
+  [ { _id: 1
+    , parent: null }
+  , { _id: 2
+    , parent: 1 }
+  , { _id: 3
+    , parent: 2 }
+  , { _id: 4
+    , parent: 2 }
+  , { _id: 5
+    , parent: 4 }
+  ]
+  , tree = oakify(list)
+
+```
 
 ## Credits
 Built by developers at [Clock](http://clock.co.uk).

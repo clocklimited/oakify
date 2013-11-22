@@ -1,29 +1,25 @@
 module.exports = oakify
 
-var _ = require('lodash')
+var extend = require('lodash.assign')
 
 function leafProcessor(value) {
   return value
 }
 
-/*
- * Recursively gets the visible sections for a given parent.
- * Parent is allowed to be null, in which case the
- * top level sections will be retrieved (and their
- * children descended). Returns a nested object that
- * is useful for simple iteration, for instance in a
- * template that generates navigation markup.
- */
 function oakify(list, parent, maxDepth, options, depth) {
 
   if (!Array.isArray(list)) {
     throw new Error('list is expected to be an Array')
   }
 
+  if (parent === undefined) {
+    parent = null
+  }
+
   var items = []
   maxDepth = maxDepth ? maxDepth : 0
 
-  options = _.extend({
+  options = extend({
       idProperty: '_id',
       parentProperty: 'parent',
       leafProcessor: leafProcessor
