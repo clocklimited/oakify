@@ -1,5 +1,7 @@
 # oakify
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/clocklimited/oakify.svg)](https://greenkeeper.io/)
+
 Take a list of items related by a parent property and make a tree.
 
 ## Installation
